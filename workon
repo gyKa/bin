@@ -1,0 +1,17 @@
+#!/bin/bash
+
+current_directory=`basename $PWD`
+venv_path=$HOME/.venv
+project_venv_path=$venv_path/$current_directory
+activation_path=${project_venv_path}/bin/activate
+
+if [ ! -d "$venv_path" ]; then
+    echo "Directory does not exists"
+fi
+
+if [ ! -d "$project_venv_path" ]; then
+    echo "python -m venv ${project_venv_path}"
+    echo "virtualenv -p python2.7 ${project_venv_path}"
+else
+    echo "source ${activation_path}"
+fi
